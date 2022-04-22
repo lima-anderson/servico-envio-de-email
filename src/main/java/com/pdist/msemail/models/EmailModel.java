@@ -34,8 +34,8 @@ public class EmailModel implements Serializable {
 	public EmailModel() {
 	}
 
-	public EmailModel(Long id, String proprietarioReferencia, String remetente, String destinatario, String tituloDoEmail,
-			String corpoDoEmail, LocalDateTime dataDeEnvio, StatusEmail status) {
+	public EmailModel(Long id, String proprietarioReferencia, String remetente, String destinatario,
+			String tituloDoEmail, String corpoDoEmail, LocalDateTime dataDeEnvio, StatusEmail status) {
 
 		this.id = id;
 		this.proprietarioReferencia = proprietarioReferencia;
