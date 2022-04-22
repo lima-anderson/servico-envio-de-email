@@ -84,16 +84,8 @@ public class EmailDto {
 		this.corpoDoEmail = corpoDoEmail;
 	}
 
-	public EmailModel DeEmailDto(EmailDto obj) {
-		EmailModel email = new EmailModel();
-		
-		email.setProprietarioReferencia(obj.getProprietarioReferencia());
-		email.setRemetente(obj.getRemetente());
-		email.setDestinatario(obj.getDestinatario());
-		email.setTituloDoEmail(obj.getTituloDoEmail());
-		email.setCorpoDoEmail(obj.getCorpoDoEmail());
-		
-		return email;
+	public EmailModel DeEmailDto() {
+		return new EmailModel(proprietarioReferencia, remetente, destinatario, tituloDoEmail, corpoDoEmail);
 	}
 
 }

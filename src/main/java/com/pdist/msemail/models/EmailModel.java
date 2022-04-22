@@ -28,23 +28,20 @@ public class EmailModel implements Serializable {
 	@Column(columnDefinition = "TEXT")
 	private String corpoDoEmail;
 
-	private LocalDateTime dataDeEnvio;
+	private LocalDateTime dataDeEnvio = LocalDateTime.now();
 	private StatusEmail status;
 
 	public EmailModel() {
 	}
 
-	public EmailModel(Long id, String proprietarioReferencia, String remetente, String destinatario,
-			String tituloDoEmail, String corpoDoEmail, LocalDateTime dataDeEnvio, StatusEmail status) {
+	public EmailModel(String proprietarioReferencia, String remetente, String destinatario, String tituloDoEmail,
+			String corpoDoEmail) {
 
-		this.id = id;
 		this.proprietarioReferencia = proprietarioReferencia;
 		this.remetente = remetente;
 		this.destinatario = destinatario;
 		this.tituloDoEmail = tituloDoEmail;
 		this.corpoDoEmail = corpoDoEmail;
-		this.dataDeEnvio = dataDeEnvio;
-		this.status = status;
 	}
 
 	public Long getId() {

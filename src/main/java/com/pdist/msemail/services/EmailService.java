@@ -1,7 +1,5 @@
 package com.pdist.msemail.services;
 
-import java.time.LocalDateTime;
-
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
@@ -19,18 +17,15 @@ public class EmailService {
 	EmailRepository repo;
 
 	public EmailModel enviarEmail(EmailModel email) {
-		email.setDataDeEnvio(LocalDateTime.now());
 
-		String emailAdmin = "";
-		String senhaAdmin = "";
+		String emailAdmin = "msgli34@gmail.com";
+		String senhaAdmin = "fdowfadorgeduuhp";
 
 		SimpleEmail simpleEmail = new SimpleEmail();
 		simpleEmail.setHostName("smtp.gmail.com");
 		simpleEmail.setSmtpPort(465);
 		simpleEmail.setAuthenticator(new DefaultAuthenticator(emailAdmin, senhaAdmin));
 		simpleEmail.setSSLOnConnect(true);
-
-		email.setDataDeEnvio(LocalDateTime.now());
 
 		try {
 			simpleEmail.setFrom(email.getRemetente());
@@ -40,7 +35,7 @@ public class EmailService {
 
 			simpleEmail.send();
 			email.setStatus(StatusEmail.ENVIADO);
-			
+
 			System.out.println("Enviado");
 		} catch (EmailException e) {
 			email.setStatus(StatusEmail.ERRO);
